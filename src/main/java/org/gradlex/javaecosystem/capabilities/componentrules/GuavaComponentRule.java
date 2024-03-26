@@ -122,7 +122,7 @@ abstract public class GuavaComponentRule implements ComponentMetadataRule {
                 if (majorVersion < 31 || isAndroidVariantVersion) {
                     dependencies.removeIf(d -> "org.checkerframework".equals(d.getGroup()));
                 }
-                if (baseVariantName.equals("Compile")) {
+                if ("Compile".equals(baseVariantName)) {
                     dependencies.add("org.checkerframework:" + checkerVersionFor(version, !isAndroidVariantVersion));
                 }
             });
@@ -133,7 +133,7 @@ abstract public class GuavaComponentRule implements ComponentMetadataRule {
         String name = androidVariant ? "checker-compat-qual" : "checker-qual";
         String version = "";
         if (androidVariant) {
-            if (guavaVersion.equals("25.1")) {
+            if ("25.1".equals(guavaVersion)) {
                 version = "2.0.0";
             } else if (guavaVersion.startsWith("28.") || guavaVersion.startsWith("29.") || guavaVersion.startsWith("30.") || guavaVersion.startsWith("31.")) {
                 version = "2.5.5";
@@ -143,13 +143,13 @@ abstract public class GuavaComponentRule implements ComponentMetadataRule {
         } else {
             if (guavaVersion.startsWith("31.")) {
                 version = "3.12.0";
-            } else if (guavaVersion.equals("30.1.1")) {
+            } else if ("30.1.1".equals(guavaVersion)) {
                 version = "3.8.0";
             } else if (guavaVersion.startsWith("30.")) {
                 version = "3.5.0";
             } else if (guavaVersion.startsWith("29.")) {
                 version = "2.11.1";
-            } else if (guavaVersion.equals("28.2")) {
+            } else if ("28.2".equals(guavaVersion)) {
                 version = "2.10.0";
             } else if (guavaVersion.startsWith("28.")) {
                 version = "2.8.1";

@@ -54,7 +54,7 @@ public abstract class JavaxMailApiRule implements ComponentMetadataRule {
         String group = context.getDetails().getId().getGroup();
         String version;
 
-        if (group.equals("org.apache.geronimo.javamail")) {
+        if ("org.apache.geronimo.javamail".equals(group)) {
             version = mailApiVersionForGeronimoName(name);
         } else {
             version = context.getDetails().getId().getVersion();
